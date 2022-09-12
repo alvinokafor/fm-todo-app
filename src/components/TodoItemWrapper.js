@@ -6,12 +6,11 @@ import "../assets/styles/TodoItemWrapper.css";
 const TodoItemWrapper = (props) => {
   return (
     <section className="todo-item-wrapper">
-     <TodoItem 
-      title={props.todoItem[0].title}
-     />
-    
+      {props.todoItem.map((todo) => (
+        <TodoItem title={todo.title} />
+      ))}
 
-     <TodoInfo />
+      <TodoInfo />
     </section>
   );
 };
