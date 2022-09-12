@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import TodoHeader from "./components/TodoHeader";
 import TodoWrapper from "./components/TodoWrapper";
 import TodoInput from "./components/TodoInput";
-import TodoItem from "./components/TodoItem";
+import TodoItemWrapper from "./components/TodoItemWrapper";
 import './index.css'
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
       <TodoWrapper>
         <TodoHeader />
         <TodoInput />
-        <TodoItem />
+        <TodoItemWrapper />
       </TodoWrapper>
       
       
