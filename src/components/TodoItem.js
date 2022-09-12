@@ -1,16 +1,25 @@
 import React from "react";
 import "../assets/styles/TodoItem.css";
 
-const TodoItem = () => {
+const TodoItem = (props) => {
+  const checkHandler = (e) => {
+    console.log(e.target.checked);
+  };
+
   return (
     <div className="todo-items">
       <div className="todo-checkbox">
-        <label for="checkbox"></label>
-        <input id="checkbox" type="checkbox" name="todoCheck" />
+        <input
+          onChange={checkHandler}
+          id="checkbox"
+          type="checkbox"
+          name="todoCheck"
+          className="todoCheck"
+        />
       </div>
-      <div className="todo-title">
-        <p>Default Todo Item</p>
-      </div>
+      <label htmlFor="checkbox" className="todo-title">
+        {props.title}
+      </label>
     </div>
   );
 };
