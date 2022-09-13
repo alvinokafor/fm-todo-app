@@ -11,13 +11,13 @@ const DUMMY_DATA = [
   {
     id: uuidv4(),
     title: "go to the gym",
-    status: false,
+    isComplete: false,
   },
 
   {
     id: uuidv4(),
     title: "eat some food",
-    status: false,
+    isComplete: false,
   },
 ];
 
@@ -30,7 +30,19 @@ const App = () => {
     });
   };
 
-  // console.log(todoDB)
+  const editHandler = (todoItem) => {
+    updateTodoList((prev) => {
+      return prev.map((todo) => {
+        if (todoItem.id !== todo.id) {
+          return todo;
+        }
+        return {
+          ...todoItem,
+          isComplete: !todoItem.isComplete,
+        };
+      });
+    });
+  };
 
   return (
     <main className="main-container">
@@ -39,7 +51,7 @@ const App = () => {
       <TodoWrapper>
         <TodoHeader />
         <TodoInput onAddTodo={addTodoHandler} />
-        <TodoItemWrapper todoItem={todoDB} />
+        <TodoItemWrapper editHandler={editHandler} todoItem={todoDB} />
       </TodoWrapper>
     </main>
   );

@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../assets/styles/TodoItem.module.css";
 
 const TodoItem = (props) => {
-  const [isChecked, setChecked] = useState(false);
+  // const [isChecked, setChecked] = useState();
+
+  // const [newStatus, updateStatus] = useState(props.todoData)
 
   const checkHandler = (e) => {
     // setChecked(!isChecked);
-    setChecked(e.target.checked)
+  
+
+    props.editHandler(props.todoData)
   };
 
-  if (isChecked) {
+  if (props.todoData.isComplete) {
     console.log("Completed");
   } else {
     console.log("Active");
@@ -20,6 +24,7 @@ const TodoItem = (props) => {
       <div className={styles["todo-checkbox"]}>
         <input
           onChange={checkHandler}
+          checked={props.todoData.isComplete}
           id="checkbox"
           type="checkbox"
           // name={styles["todoCheck"]}
@@ -28,11 +33,11 @@ const TodoItem = (props) => {
       </div>
       <label
         htmlFor="checkbox"
-        className={`${styles["todo-title"]} ${
-          isChecked && styles["todo-completed"]
-        }`}
+        className={`${styles["todo-title"]} 
+        ${props.todoData.isComplete && styles["todo-completed"]}
+        `}
       >
-        {props.title}
+        {props.todoData.title}
       </label>
     </div>
   );
