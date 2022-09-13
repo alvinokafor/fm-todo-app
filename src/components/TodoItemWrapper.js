@@ -7,7 +7,7 @@ const TodoItemWrapper = (props) => {
   return (
     <section className="todo-item-wrapper">
       {props.todoItem.map((todo) => (
-        <TodoItem title={todo.title} />
+        <TodoItem key={todo.id} title={todo.title} />
       ))}
 
       <TodoInfo />

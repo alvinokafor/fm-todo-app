@@ -26,8 +26,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: hsl(234, 39%, 85%);
+  color:  hsl(234, 39%, 85%);
 }
+
+.todo-completed {
+  color: hsla(234, 39%, 85%, 0.116)
+}
+
 
 .todo-checkbox {
   display: flex;
@@ -69,11 +74,11 @@
     background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
 } */
 
-.todoCheck:checked {
+.todo-checkbox:checked {
   background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
 }
 
-.todoCheck:checked::before {
+.todo-checkbox:checked::before {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='9'%3E%3Cpath fill='none' stroke='%23FFF' stroke-width='2' d='M1 4.304L3.696 7l6-6'/%3E%3C/svg%3E");
   color: #fff;
 }
